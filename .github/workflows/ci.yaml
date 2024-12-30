@@ -1,4 +1,27 @@
-name: develop-workflow
+# name: develop-workflow
+# on:
+#   push:
+#     branches:
+#       - develop
+#   pull_request:
+#     branches:
+#       - develop
+# jods:
+#   first_job:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: wellcome step 
+#         run: echo "well come to action perform"
+#       - name: checkout Repository
+#         uses: actions/actions/checkout@v4
+#       - name: Basic Info
+#         run: |
+#           echo"Repository name is :${{github.repository}}"
+#           echo"Repository name is :${{github.owner}}"
+#           echo"Repository name is :${{github.event}}  
+
+
+name: ci-workflow
 on:
   push:
     branches:
@@ -6,16 +29,16 @@ on:
   pull_request:
     branches:
         - develop
-jods:
-    first_job:
-        runs-on: ubuntu-latest
-        steps:
-            - name: wellcome step 
-              run: echo "well come to action perform"
-            - name: checkout Repository
-              uses: actions/actions/checkout@v4
-            - name: Basic Info
-              run: |
-                echo"Repository name is :${{github.repository}}"
-                echo"Repository name is :${{github.owner}}"
-                echo"Repository name is :${{github.event}}"
+jobs:
+  first_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Welcome Step
+        run: echo "wecome to GitHub Actions"
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      - name: Repository Basic Info
+        run: | 
+          echo "Reopository Name: ${{github.repository}}"
+          echo "Repository Owner: ${{github.owner}}"
+          echo "Event NAME: ${{github.event}}"
